@@ -1,8 +1,3 @@
-######################### Origional Source ##########################
-"""
-https://github.com/kush789/Artificial-Neural-Networks---Multi-Layer-Perceptron
-"""
-########################### Dependencies ############################
 
 import numpy
 import copy
