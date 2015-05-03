@@ -52,7 +52,7 @@
 
 		<div class="col-xs-12 text-center abcen1">
             <br><br><br><br><br>
-			<h2 class="h2_home wow fadeIn" data-wow-delay="0.4s">NASDAQ</h2><br><br>
+			<h2 id = "heading" class="h2_home wow fadeIn" data-wow-delay="0.4s">NASDAQ</h2><br><br>
 			<ul class="list-inline intro-social-buttons">
 				<li >
                     <button id = "prev" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s" style="width:200px; height:150px; background-color:rgba(255,255,255,0)"></button>
@@ -130,7 +130,16 @@
             });
 
             setTimeout(function(){
-                update()}, 1500);
+                if (i < 1000){
+                    update()}
+                else
+                    {
+                        $("#prev").html("");
+                        $("#predicted").html("");
+                        $("#actual").html("");
+                        $("#heading").html("Thank you for visiting");
+
+                    }}, 1500);
         }
 
 
