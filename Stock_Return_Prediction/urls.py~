@@ -7,4 +7,5 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'Stock_Return_Prediction.views.index', name='home'),
+    (r'^marketindex/', include('index.urls')),
 )
