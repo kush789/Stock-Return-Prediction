@@ -1,172 +1,119 @@
-﻿{% load staticfiles %}
+{% load staticfiles %}
 {% load bootstrap %}
 {% load bootstrap3 %}
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+ <!-- FlatFy Theme - Andrea Galanti /-->
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html> <!--<![endif]-->
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <!--[if IE]>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <![endif]-->
-    <title>Market Indexes</title>
-    <!-- BOOTSTRAP CORE STYLE  -->
-    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" />
-    <!-- FONT AWESOME ICONS  -->
-    <link href="{% static "css/font-awesome.css" %}" rel="stylesheet" />
-    <!-- CUSTOM STYLE  -->
-    <link href="{% static "css/style.css" %}" rel="stylesheet" />
-     <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Flatfy Free Flat and Responsive HTML5 Template ">
+    <meta name="author" content="">
+
+    <title>Stock Market Prediction</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+ 
+    <!-- Custom Google Web Font -->
+    <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+	
+    <!-- Custom CSS-->
+    <link href="{% static "css/general.css" %}" rel="stylesheet">
+	
+	 <!-- Owl-Carousel -->
+    <link href="{% static "css/custom.css" %}" rel="stylesheet">
+    <link href="{% static "css/owl.carousel.css" %}" rel="stylesheet">
+    <link href="{% static "css/owl.theme.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.csss" %}" rel="stylesheet">
+    <link href="{% static "css/animate.css" %}" rel="stylesheet">
+	
+	<!-- Magnific Popup core CSS file -->
+	<link rel="stylesheet" href="{% static "css/magnific-popup.css" %}"> 
+	
+	<script src="{% static "js/modernizr-2.6.2.min.js" %}"></script>  <!-- Modernizr /-->
 </head>
-<body>
 
-    <div class="navbar navbar-inverse set-radius-zero">
-        <div class="container">
-           
-                
-                        <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a class="menu-top-active" href="/">HOME</a></li>
-                            <li><a href="/marketindex/">MARKET INDEX</a></li>
-                            <li><a href="#viewbd">VIEW DB</a></li>
+<body id="home">
 
+	<!-- Preloader -->
+	<div id="preloader">
+		<div id="status"></div>
+	</div>
+	
+	<!-- FullScreen -->
+    <div class="intro-header">
 
-                        </ul>
-                
-        </div>
-    </div>
+        <ul class="list-inline intro-social-buttons">
+                <li id="download" ><a href="#downloadlink" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s" style="width:150px;"><span class="network-name">NASDAQ</span></a>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                </li>
+                <li id="download" ><a href="/marketindex/" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s" style="width:150px;"><span class="network-name">DOW JONES</span></a>
+                </li>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <li id="download" ><a href="/marketindex/" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s" style="width:150px;"><span class="network-name">BSE</span></a>
+                </li>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <li id="download" ><a href="/marketindex/" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s" style="width:150px;"><span class="network-name">NIKKIE</span></a>
+                </li>
+            </ul>
 
-    <!-- MENU SECTION END-->
-    <div class="content-wrapper">
-        <div class="container">
-
-        <br><br>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="alert alert-success" style="text-align:center;">
-                        Choose a market exchange to run Market Index Prediction on.
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="row">
-                 
-        <br><br>
-                
-
-        
-            <div class="col-lg-3 col-md-6">
-            <a href="#">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-plus fa-5x"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                        <div class="panel-footer">
-                            <span class="pull-left">NASDAQ</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    
-                </div>
-                 </a>
-            </div>  
-           
-
-            
-            <div class="col-lg-3 col-md-6">
-            <a href="#">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-plus fa-5x"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                        <div class="panel-footer">
-                            <span class="pull-left">DOW JONES</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    
-                </div>
-                </a>
-            </div>  
-            
-
-                    
-            <div class="col-lg-3 col-md-6">
-            <a href="#">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-plus fa-5x"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                        <div class="panel-footer">
-                            <span class="pull-left">BSE</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    
-                </div>
-                 </a>
-            </div> 
-           
-
-            
-            <div class="col-lg-3 col-md-6">
-            <a href="#">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-plus fa-5x"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                        <div class="panel-footer">
-                            <span class="pull-left">NIKKIE</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    
-                </div>
-                </a> 
-            </div>    
+		<div class="col-xs-12 text-center abcen1">
+            <br><br><br><br><br>
+			<h2 class="h2_home wow fadeIn" data-wow-delay="0.4s">Select an exchange to start the predition simulation </h2><br><br>
+			<ul class="list-inline intro-social-buttons">
+				<li id="download" ><div  class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s" style="width:170px; height:50px;"></div><br><span class="network-name">Previous Index</span>
+				</li>
+                <li id="download" ><div class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s" style="width:170px; height:50px;"></div><br><span class="network-name">Predicted Index</span>
+                </li>
+                <li id="download" ><div class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s" style="width:170px; height:50px;"></div><br><span class="network-name">Actual Index</span>
+                </li>
+			</ul>
+		</div>    
 
 
-
-           
-            
+        <div class="col-xs-12 text-center abcen wow fadeIn">
+            <div class="button_down "> 
+                <a class="imgcircle" data-wow-duration="1.5s"  href="/"> <img  src="{% static "img/icon/circle.png" %}" alt=""> </a>
             </div>
         </div>
+        <!-- /.container -->
     </div>
-    <!-- CONTENT-WRAPPER SECTION END-->
 
-    <!-- FOOTER SECTION END-->
-    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-    <!-- CORE JQUERY SCRIPTS -->
-    <script src="{% static "js/jquery-1.11.1.js" %}"></script>
-    <!-- BOOTSTRAP SCRIPTS  -->
+
+    <!-- JavaScript -->
+    <script src="{% static "js/jquery-1.10.2.js" %}"></script>
     <script src="{% static "js/bootstrap.js" %}"></script>
+    <script src="{% static "js/owl.carousel.j" %}"></script>
+    <script src="{% static "js/script.js" %}"></script>
+
+	<!-- StikyMenu -->
+	<script src="{% static "js/stickUp.min.js" %}"></script>
+	<script type="text/javascript">
+	  jQuery(function($) {
+		$(document).ready( function() {
+		  $('.navbar-default').stickUp();
+		  
+		});
+	  });
+	
+	</script>
+	<!-- Smoothscroll -->
+	<script type="text/javascript" src="{% static "js/jquery.corner.js" %}"></script> 
+	<script src="{% static "js/wow.min.js" %}"></script>
+	<script>
+	 new WOW().init();
+	</script>
+	<script src="{% static "js/classie.js" %}"></script>
+	<script src="{% static "js/uiMorphingButton_inflow.js" %}"></script>
+	<!-- Magnific Popup core JS file -->
+	<script src="{% static "js/jquery.magnific-popup.js" %}"></script> 
 </body>
+
 </html>
