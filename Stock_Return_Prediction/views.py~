@@ -1,0 +1,6 @@
+from django.shortcuts import render_to_response
+from django.core.context_processors import csrf
+from django.http import HttpResponseRedirect
+
+def index(request):
+	return render_to_response('index.html')

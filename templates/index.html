@@ -1,0 +1,94 @@
+{% load staticfiles %}
+{% load bootstrap %}
+{% load bootstrap3 %}
+ <!-- FlatFy Theme - Andrea Galanti /-->
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Flatfy Free Flat and Responsive HTML5 Template ">
+    <meta name="author" content="">
+
+    <title>Stock Market Prediction</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+ 
+    <!-- Custom Google Web Font -->
+    <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+	
+    <!-- Custom CSS-->
+    <link href="{% static "css/general.css" %}" rel="stylesheet">
+	
+	 <!-- Owl-Carousel -->
+    <link href="{% static "css/custom.css" %}" rel="stylesheet">
+    <link href="{% static "css/owl.carousel.css" %}" rel="stylesheet">
+    <link href="{% static "css/owl.theme.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.csss" %}" rel="stylesheet">
+    <link href="{% static "css/animate.css" %}" rel="stylesheet">
+	
+	<!-- Magnific Popup core CSS file -->
+	<link rel="stylesheet" href="{% static "css/magnific-popup.css" %}"> 
+	
+	<script src="{% static "js/modernizr-2.6.2.min.js" %}"></script>  <!-- Modernizr /-->
+</head>
+
+<body id="home">
+
+	<!-- Preloader -->
+	<div id="preloader">
+		<div id="status"></div>
+	</div>
+	
+	<!-- FullScreen -->
+    <div class="intro-header">
+		<div class="col-xs-12 text-center abcen1">
+			<h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">Stock Market Prediction </h1><br><br>
+			<ul class="list-inline intro-social-buttons">
+				<li id="download" ><a href="#downloadlink" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s"><span class="network-name">Stock Quote</span></a>
+				</li>
+				<li id="download" ><a href="#downloadlink" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s"><span class="network-name">Maket Indexes</span></a>
+				</li>
+			</ul>
+		</div>    
+        <!-- /.container -->
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="{% static "js/jquery-1.10.2.js" %}"></script>
+    <script src="{% static "js/bootstrap.js" %}"></script>
+    <script src="{% static "js/owl.carousel.j" %}"></script>
+    <script src="{% static "js/script.js" %}"></script>
+
+	<!-- StikyMenu -->
+	<script src="{% static "js/stickUp.min.js" %}"></script>
+	<script type="text/javascript">
+	  jQuery(function($) {
+		$(document).ready( function() {
+		  $('.navbar-default').stickUp();
+		  
+		});
+	  });
+	
+	</script>
+	<!-- Smoothscroll -->
+	<script type="text/javascript" src="{% static "js/jquery.corner.js" %}"></script> 
+	<script src="{% static "js/wow.min.js" %}"></script>
+	<script>
+	 new WOW().init();
+	</script>
+	<script src="{% static "js/classie.js" %}"></script>
+	<script src="{% static "js/uiMorphingButton_inflow.js" %}"></script>
+	<!-- Magnific Popup core JS file -->
+	<script src="{% static "js/jquery.magnific-popup.js" %}"></script> 
+</body>
+
+</html>
