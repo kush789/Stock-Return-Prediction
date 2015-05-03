@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from index.models import *
 import os
 module_dir = os.path.dirname(__file__)
-file_path = os.path.join(module_dir, 'BSE.csv')
+file_path = os.path.join(module_dir, 'DOWJONES.csv')
 
 def index(request):
 	# g = open(file_path, "r")
@@ -14,10 +14,11 @@ def index(request):
 	# for i in range(len(a)):
 	# 	a[i] = a[i].strip("\n")
 	# 	a[i] = a[i].split(",")
-	# 	sample = BSE(bseid = num, value = float(a[i][1]), date = a[i][0])
+	# 	sample = DOWJONES(dowjonesid = num, value = float(a[i][1]), date = a[i][0])
 	# 	sample.save()
 	# 	num += 1
-	# g.close()	
-	for i in BSE.objects.all():
-		print i.bseid, i.value, i.date
+	# 	print num
+	# # g.close()	
+	# for i in DOWJONES.objects.all():
+	# 	print i.dowjonesid, i.value, i.date
 	return render_to_response('index.html')
