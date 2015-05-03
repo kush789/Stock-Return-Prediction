@@ -1,0 +1,160 @@
+{% load staticfiles %}
+{% load bootstrap %}
+{% load bootstrap3 %}
+ <!-- FlatFy Theme - Andrea Galanti /-->
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Flatfy Free Flat and Responsive HTML5 Template ">
+    <meta name="author" content="">
+
+    <title>Stock Market Prediction</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+ 
+    <!-- Custom Google Web Font -->
+    <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+	
+    <!-- Custom CSS-->
+    <link href="{% static "css/general.css" %}" rel="stylesheet">
+	
+	 <!-- Owl-Carousel -->
+    <link href="{% static "css/custom.css" %}" rel="stylesheet">
+    <link href="{% static "css/owl.carousel.css" %}" rel="stylesheet">
+    <link href="{% static "css/owl.theme.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.csss" %}" rel="stylesheet">
+    <link href="{% static "css/animate.css" %}" rel="stylesheet">
+	
+	<!-- Magnific Popup core CSS file -->
+	<link rel="stylesheet" href="{% static "css/magnific-popup.css" %}"> 
+	
+	<script src="{% static "js/modernizr-2.6.2.min.js" %}"></script>  <!-- Modernizr /-->
+</head>
+
+<body id="home" onload="start()">
+
+	<!-- Preloader -->
+	<div id="preloader">
+		<div id="status"></div>
+	</div>
+	
+	<!-- FullScreen -->
+    <div class="intro-header">
+
+		<div class="col-xs-12 text-center abcen1">
+            <br><br><br><br><br>
+			<h2 class="h2_home wow fadeIn" data-wow-delay="0.4s">NASDAQ</h2><br><br>
+			<ul class="list-inline intro-social-buttons">
+				<li >
+                    <button id = "prev" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s" style="width:200px; height:150px; background-color:rgba(255,255,255,0)"></button>
+                    <br><br>
+                    <span class="network-name">Previous Index</span>
+				</li>
+                <li >
+                    <button id = "predicted" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s" style="width:200px; height:150px; background-color:rgba(255,255,255,0)"></button>
+                <br><br>
+                <span class="network-name">Predicted Index</span>
+                </li>
+                <li >
+                    <button id = "actual" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s" style="width:200px; height:150px; background-color:rgba(255,255,255,0)"></button>
+                    <br><br>
+                    <span class="network-name">Actual Index</span>
+                </li>
+			</ul>
+		</div>    
+
+
+        <!-- /.container -->
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="{% static "js/jquery-1.10.2.js" %}"></script>
+    <script src="{% static "js/bootstrap.js" %}"></script>
+    <script src="{% static "js/owl.carousel.j" %}"></script>
+    <script src="{% static "js/script.js" %}"></script>
+
+	<!-- StikyMenu -->
+	<script src="{% static "js/stickUp.min.js" %}"></script>
+	<script type="text/javascript">
+	  jQuery(function($) {
+		$(document).ready( function() {
+		  $('.navbar-default').stickUp();
+		  
+		});
+	  });
+	
+	</script>
+
+    <script type="text/javascript">
+
+        var i = 0;
+
+        var hidden_weights = [[0.22628010596978584, -0.46299343319111663, -0.43018975173505353], [-0.37085571881580909, -0.27719867341885784, -0.353723929571921], [-0.24607669852363964, -0.42311057565414717, 0.25107872401354359], [0.032518605411759494, 0.066901150553434083, 0.30433840721409255], [-0.60045137232700385, -0.22763395583904766, -0.52756624530608409], [-0.031749216896528321, 0.14255620009469033, -0.48416931132656604], [-0.64398834672579408, -0.19319906773600229, 0.48356318501986556], [-0.42986110438572894, -0.33967962111190364, 0.49065172712044414], [0.052952460828394957, 0.49266619915466192, -0.21561611981187462], [-0.069016254243215641, -0.047576756283983224, 0.35523468072534159], [-0.061780520810220965, 0.41537877771099269, -0.19406407468937387], [0.069782800123885755, 0.59682169289257703, 0.20048114532380246], [0.19776410146769924, -0.12374465549763615, 0.16202392637213597], [0.24590935619537996, -0.49233134258979006, -0.069204163355446532], [0.32776602480755423, 0.19799273456262412, -0.028013766905909333]];
+
+        var input_weights = [[-0.18839694704580187, 0.5779430687458943, -0.17504914259672461, -0.26986176624982428, 0.17721344777496675, -0.29379052771755387, 0.25775958784365316, 0.24669904400964962, -0.48365573662426237, 0.057984347468698516, 0.46200811329079383, 0.61279860168702793, 0.3212548853787946, -0.43632784268909486, 0.50216660014021175], [-0.57448184966244809, -0.54275553244236174, 0.55381146542580251, -0.4410866133758774, 0.37037419633555368, 0.23889587323847236, -0.46606422729227936, -0.22308303027982393, -0.59142406743760456, 0.28866807272642803, -0.44661362973939261, 0.34703209729291884, 0.4460454545779991, -0.060890369988159242, 0.28700423916670825], [0.11684164868887682, -0.1563000752419704, 0.29622519436814204, 0.30408676905498694, 0.070527948147186714, 0.016407063911513736, 0.029334968692538727, 0.0054041673191199168, 0.42127443584792629, -0.41057073837240382, 0.26450006239858714, 0.25517670716547042, 0.27770237514256213, -0.37943734082254543, 0.12699906160662458], [0.041961321125927743, -0.42497986827475021, 0.33172647952478751, 0.46571656314315896, -0.36885624955988594, -0.041667573621107748, 0.55662840817679327, -0.091767894028986469, -0.27843712628915007, -0.44043420810211392, 0.30589138670178095, -0.50912729717774885, 0.17873723668416763, -0.59529312402449497, -0.20259863062883612], [-0.060596491878250683, 0.068651224322990256, -0.33126495280983487, 0.022949114524351152, -0.010318303701800556, -0.42774495145841368, -0.35955119069123426, 0.14742171695650372, -0.29870191665877127, 0.33076818068122577, -0.29258012666866717, -0.58307255290530891, 0.13199345964041959, 0.18912655112923385, 0.44309988303930775], [0.32585651977103047, -0.59863090525514062, -0.50526587013810254, 0.13240880840501487, -0.32285902853189274, 0.16445355043231003, -0.018691224437055821, -0.017865419893980945, 0.14668108877283903, 0.23011598935481589, -0.47999319462257983, -0.44758063964310041, -0.47122524198545912, -0.060863576967711934, -0.3261999952211449], [-0.038856348868753429, -0.16556071387979002, -0.20138681876650685, 0.55001368924157534, -0.29819165031105604, 0.12863431329108518, 0.37349033052952069, 0.36995764546077398, 0.60366221690392907, 0.33277610250159034, -0.14365652479388014, 0.47460190075293346, -0.60789310923803563, 0.29776195554382395, 0.46759478796154286], [-0.6082250185758874, -0.26728736398851088, 0.033916139303162569, -0.57816832773136606, -0.43149271385710919, 0.20412008326971826, 0.30810625924351709, 0.019568215030584288, -0.14376042387081309, 0.1880808876949718, 0.46704443558431447, -0.48211311207955088, -0.5264659787090693, 0.35138627645627135, -0.46914230020802766], [-0.55473622775881082, -0.55099284083379718, -0.022160869133536768, -0.16339466325691798, 0.3926366520700425, -0.019347833769314041, -0.51948759790927324, -0.069931174455761511, 0.33376041919888394, 0.25948640391594968, 0.47414895187508477, 0.33142483800445321, -0.19703806082198885, 0.37700484492201053, -0.47286427120138502], [0.37633413426770579, 0.42278435066358694, 0.2915641823839375, -0.54442563507572583, 0.031128530738237896, -0.53218252809180944, -0.098923974189423738, -0.12563365314537095, 0.49788925618960239, -0.054745743081363089, -0.56891665245241652, 0.12928013551956849, 0.027029903916270352, 0.40812718227496875, 0.071016168021280829]]; 
+
+        function update(){
+            i+=1;
+            var target = "/marketindex/nasdaq_update" + "/" + String(i) + "/";
+            var jsondata = { input : input_weights, hidden : hidden_weights };
+            $.ajax({
+
+                type : "POST",
+                url : target,
+                data : jsondata,
+                success : function (data) {
+
+                    $("#prev").html(data["prev"]);
+                    $("#predicted").html(data["pred"]);
+                    $("#actual").html(data["right"]);
+                    
+                    for (var j = 0; j < 15; j++)
+                        for (var k = 0; k < 3; k++)
+                            hidden_weights[j][k] = data["hidden_layer"][j][k]
+
+                    for (var j = 0; j < 10; j++)
+                        for (var k = 0; k < 15; k++)
+                            input_weights[j][k] = data["input_weights"][j][k]
+
+                }
+            });
+
+            setTimeout(function(){
+                update()}, 1500);
+        }
+
+
+    function start(){
+        setTimeout(function(){
+                update()}, 3000);
+    }
+
+
+
+    </script>
+
+	<!-- Smoothscroll -->
+	<script type="text/javascript" src="{% static "js/jquery.corner.js" %}"></script> 
+	<script src="{% static "js/wow.min.js" %}"></script>
+	<script>
+	 new WOW().init();
+	</script>
+	<script src="{% static "js/classie.js" %}"></script>
+	<script src="{% static "js/uiMorphingButton_inflow.js" %}"></script>
+	<!-- Magnific Popup core JS file -->
+	<script src="{% static "js/jquery.magnific-popup.js" %}"></script> 
+
+
+</body>
+
+</html>
