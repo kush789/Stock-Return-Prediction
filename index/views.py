@@ -4,3 +4,6 @@ from django.http import HttpResponseRedirect
 
 def index(request):
 	return render_to_response('marketindex.html')
+
+def nasdaq(request):
+	return render_to_response('NASDAQ.html')
