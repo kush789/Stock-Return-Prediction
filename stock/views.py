@@ -7,19 +7,37 @@ from index.models import *
 from stock.models import *
 
 import os
+
 module_dir = os.path.dirname(__file__)  # get current directory
-file_path = os.path.join(module_dir, 'MSFT_OPEN_PRICES.csv')
+file_path = os.path.join(module_dir, 'WIKI-MSFT.csv')
+
+def modd(x):
+	if x < 0:
+		return -1 * x
+	else:
+		return x
 
 def index(request):
 	return render_to_response('stock.html')
 
 def msft(request):
-	g = open(file_path, "r")
-	k = 0
-	for i in g.readlines():
-		k += 1
-		sample = MSFT(msftid = k, value = float(i[0].strip("\n")))
-		print sample.value
+	# g = open(file_path, "r")
+	# k = 0
+
+
+	# values = g.readlines()[1:]
+	# for i in range(len(values)):
+	# 	values[i] = values[i].strip("\n")
+	# 	values[i] = values[i].split(",")
+
+	# for i in values:
+	# 	k += 1
+	# 	sample = MSFT(msftid = k, date = i[0], value = float(i[1]))
+	# 	sample.save()
+	# 	print k
+
+
+
 	return render_to_response('msft.html')
 
 def msft_update(request, param):
@@ -45,12 +63,12 @@ def msft_update(request, param):
 	predicted_data = []
 
 	param = int(param)
-	param += 2500
+	param += 2000
 	for i in range(int(param), int(param) + 10):
-		input_data.append(NASDAQ.objects.get(nasdaqid = i).value)
+		input_data.append(MSFT.objects.get(msftid = i).value)
 
 	for i in range(int(param) + 10, int(param) + 13):
-		output_data.append(NASDAQ.objects.get(nasdaqid = i).value)
+		output_data.append(MSFT.objects.get(msftid = i).value)
 
 	in_t_min_one = float(input_data[-1])
 
@@ -66,7 +84,7 @@ def msft_update(request, param):
 	min_data = 25.5
 	den = 153.44
 
-	network = neural_network(0.5, 0.0001)
+	network = neural_network(0.5, 0.001)
 	network.set_input_layer(10, input_weights)
 	network.set_hidden_layer(15, hidden_weights, hidden_bias)
 	network.set_output_layer(3, output_bias)
@@ -104,11 +122,16 @@ def msft_update(request, param):
 	data["pred"] = "{0:.2f}".format(predicted_data[0])
 	data["right"] = "{0:.2f}".format(output_data[0])
 
-	if modd(predicted_data[0] - output_data[0]) > 100:
+	if modd(predicted_data[0] - output_data[0]) > 5:
 		network.set_learning_rate(0.5)
-	else:
+	elif modd(predicted_data[0] - output_data[0]) > 1:
 		network.set_learning_rate(0.3)
 
+	if modd(predicted_data[0] - output_data[0]) < 0.5:
+		network.set_mobility_factor(0.0001)
+		network.set_learning_rate(0.1)
+	else:
+		network.set_mobility_factor(0.001)
 	return HttpResponse(json.dumps(data), content_type="application/json")	
 
 

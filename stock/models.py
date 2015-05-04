@@ -3,7 +3,7 @@ from django.db import models
 class MSFT(models.Model):
 	msftid = models.IntegerField()
 	value = models.FloatField()
-	# date = models.DateTimeField()
+	date = models.DateTimeField()
 
 # class NASDAQ(models.Model):
 # 	nasdaqid = models.IntegerField()

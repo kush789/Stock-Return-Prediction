@@ -10,6 +10,7 @@ def modd(x):
 		return -1 * x
 	else:
 		return x
+		
 def index(request):
 	return render_to_response('marketindex.html')
 
