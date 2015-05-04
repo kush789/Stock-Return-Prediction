@@ -2,6 +2,8 @@ from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
 from django.http import HttpResponseRedirect, HttpResponse
 import json
+from artificial_neural_network import *
+from index.models import *
 
 def modd(x):
 	if x < 0:
