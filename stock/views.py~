@@ -8,4 +8,3 @@ def index(request):
 
 def msft(request):
 	return render_to_response('msft.html')
-
